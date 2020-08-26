@@ -281,8 +281,6 @@ def send_text(message):
 
 
 		elif message.text.lower() == '📤 отправить сообщение':
-			try:
-
 					print('yes_chat')
 					connection = sqlite3.connect('database.sqlite')
 					q = connection.cursor()
@@ -297,7 +295,6 @@ def send_text(message):
 
 					bot.send_message(message.chat.id, f'Стоимость смс: {sms_prace[0]}р (любой сервис)' ,parse_mode='HTML', reply_markup=keyboard)
 					bot.send_message(message.chat.id, f'<a href="https://t.me/c/1282085153/6">⚠️ Правила смс(кликабельно) за нарушение БАН!</a>' ,parse_mode='HTML')
-
 		elif message.text.lower() == '📞 прозвон':
 			try:
 				if 'member' == bot.get_chat_member(chat_id=config.subid, user_id=message.chat.id).status:
