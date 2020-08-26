@@ -1231,7 +1231,7 @@ id: <code>{id_smskaa}</code>''', reply_markup=keyboards.main, parse_mode='HTML')
 							connection.commit()
 					
 
-				except:
+				except Exeption as e:
 					#connection = sqlite3.connect('database.sqlite')
 					#q = connection.cursor()
 					#q.execute("update ugc_users set balans = balans + "+str(sms_prace[0])+" where id = " + str(message.chat.id))
