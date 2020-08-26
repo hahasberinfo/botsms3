@@ -15,7 +15,6 @@ from light_qiwi import Qiwi, OperationType
 import keyboards
 import requests
 import transliterate
-import traceback
 import sys
 
 configuration = Configuration()
@@ -1231,7 +1230,7 @@ id: <code>{id_smskaa}</code>''', reply_markup=keyboards.main, parse_mode='HTML')
 							connection.commit()
 					
 
-				except Exeption as e:
+				except:
 					#connection = sqlite3.connect('database.sqlite')
 					#q = connection.cursor()
 					#q.execute("update ugc_users set balans = balans + "+str(sms_prace[0])+" where id = " + str(message.chat.id))
@@ -1244,11 +1243,6 @@ id: <code>{id_smskaa}</code>''', reply_markup=keyboards.main, parse_mode='HTML')
 					connection.commit()
 					bot.send_message(message.chat.id, '⚠ Ошибка. Мы уже знаем и решаем проблему.')
 					bot.send_message(config.admin, 'Ошибка отправки.')
-					error_log = f'{e}\n{traceback.format_exc()}'
-					with open("ERROR.txt", "w", encoding="utf-8") as f: f.write(error_log)
-					doc = open("ERROR.txt", "rb")
-					bot.send_document(config.admin, doc)
-					doc.close()
 
 			else:
 				bot.send_message(message.chat.id, '⚠ Недостаточно средств')
