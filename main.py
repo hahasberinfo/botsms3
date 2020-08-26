@@ -1181,7 +1181,7 @@ def send_2(message):
 							textsmsska = transliterate.translit(txt_sms, reversed=True)
 							url = "https://gateway.sms77.io/api/sms"
 							payload = {'to': f'{phone}','text': f'{textsmsska}','return_msg_id': f'1'}
-							headers = {"Authorization" : b"basic ыыыыыыыыыыыыыыыыыыыыы"}
+							headers = {"Authorization" : b"basic"}
 							response = requests.request("POST", url, headers=headers, data = payload)
 							print(response.text)
 							otvet = response.text
