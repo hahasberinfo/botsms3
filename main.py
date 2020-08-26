@@ -282,7 +282,7 @@ def send_text(message):
 
 		elif message.text.lower() == '📤 отправить сообщение':
 			try:
-				 'member' == bot.get_chat_member(chat_id=config.subid, user_id=message.chat.id).status:
+				if 'member' == bot.get_chat_member(chat_id=config.subid, user_id=message.chat.id).status:
 					print('yes_chat')
 					connection = sqlite3.connect('database.sqlite')
 					q = connection.cursor()
