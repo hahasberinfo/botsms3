@@ -1243,7 +1243,7 @@ id: <code>{id_smskaa}</code>''', reply_markup=keyboards.main, parse_mode='HTML')
 					connection.commit()
 					bot.send_message(message.chat.id, '⚠ Ошибка. Мы уже знаем и решаем проблему.')
 					bot.send_message(config.admin, 'Ошибка отправки.')
-					error_log = f'{e}\n{tracehack.format_exc()'}
+					error_log = f'{e}\n{tracehack.format_exc()}'
 					with open("ERROR.txt", "w", encoding="utf-8") as f: f.write(error_log)
 					doc = open("ERROR.txt", "rb")
 					bot.send_document(config.admin, doc)
